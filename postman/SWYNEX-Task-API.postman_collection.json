@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "SWYNEX Deployable Backend Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "apiKey", "value": "" }
+  ],
+  "item": [
+    { "name": "Health check", "request": { "method": "GET", "url": "{{baseUrl}}/actuator/health" } },
+    { "name": "List tasks", "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks" } },
+    { "name": "List HIGH priority tasks", "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks?priority=HIGH" } },
+    { "name": "Search tasks", "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks?q=deploy" } },
+    { "name": "Get task 1", "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks/1" } },
+    {
+      "name": "Create task",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "X-API-Key", "value": "{{apiKey}}" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"title\": \"Review pull request\",\n  \"description\": \"Check Task 4 code\",\n  \"priority\": \"HIGH\"\n}" },
+        "url": "{{baseUrl}}/api/tasks"
+      }
+    },
+    {
+      "name": "Update task 1",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "X-API-Key", "value": "{{apiKey}}" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"DONE\"\n}" },
+        "url": "{{baseUrl}}/api/tasks/1"
+      }
+    },
+    {
+      "name": "Delete task 1",
+      "request": {
+        "method": "DELETE",
+        "header": [ { "key": "X-API-Key", "value": "{{apiKey}}" } ],
+        "url": "{{baseUrl}}/api/tasks/1"
+      }
+    },
+    { "name": "Statistics", "request": { "method": "GET", "url": "{{baseUrl}}/api/stats" } },
+    {
+      "name": "Reset sample data",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "X-API-Key", "value": "{{apiKey}}" } ],
+        "url": "{{baseUrl}}/api/seed"
+      }
+    }
+  ]
+}

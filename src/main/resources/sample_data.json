@@ -1,0 +1,10 @@
+[
+  {"title": "Set up project repository", "description": "Create GitHub repo and folder structure", "status": "DONE", "priority": "HIGH"},
+  {"title": "Design database schema", "description": "Define tasks table and fields", "status": "DONE", "priority": "HIGH"},
+  {"title": "Implement CRUD endpoints", "description": "Create, read, update, delete tasks", "status": "DONE", "priority": "HIGH"},
+  {"title": "Add input validation", "description": "Validate status and priority values", "status": "IN_PROGRESS", "priority": "MEDIUM"},
+  {"title": "Write automated tests", "description": "Cover all endpoints with MockMvc", "status": "IN_PROGRESS", "priority": "MEDIUM"},
+  {"title": "Write deployment notes", "description": "Document Docker and Render steps", "status": "TODO", "priority": "MEDIUM"},
+  {"title": "Deploy to the cloud", "description": "Publish a live URL", "status": "TODO", "priority": "HIGH"},
+  {"title": "Post LinkedIn explanation", "description": "Tag @SWYNEX Technologies with demo", "status": "TODO", "priority": "LOW"}
+]

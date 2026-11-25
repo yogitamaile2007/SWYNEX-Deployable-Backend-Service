@@ -1,0 +1,16 @@
+# Render has no free MySQL. Create the database on Railway/Aiven/PlanetScale-compatible host
+# and set DB_URL, DB_USER, DB_PASSWORD in the Render dashboard.
+services:
+  - type: web
+    name: swynex-deployable-backend-service
+    runtime: docker
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: API_KEY
+        generateValue: true
